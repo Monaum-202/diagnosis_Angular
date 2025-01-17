@@ -1,0 +1,83 @@
+searchText: string = '';
+  filteredMedicines: string[] = [];
+
+  // Filter the medicines based on user input
+  filterMedicines(): void {
+    if (this.searchText.trim() === '') {
+      this.filteredMedicines = [];
+    } else {
+      this.filteredMedicines = this.mList.filter(med =>
+        med.toLowerCase().includes(this.searchText.toLowerCase())
+      );
+    }
+  }
+
+  // Handle the selection of a medicine
+  selectMedicine(medicine: string): void {
+    this.searchText = medicine; // Set the input value
+    this.filteredMedicines = []; // Clear the dropdown suggestions
+    console.log('Selected Medicine:', medicine); // Perform any additional action
+  }
+
+
+
+
+
+
+
+
+  <div class="mb-3">
+                <label for="Medicine" class="form-label">Medicine</label>
+                <select class="form-select" id="Medicine" (change)="addMedicin($event)">
+                  <option value="{{val}}" *ngFor="let val of mList">{{val}}</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="Medicine" class="form-label">Frequency</label>
+                <select class="form-select" id="Medicine" (change)="addFrequency($event)">
+                  <option value="{{val}}" *ngFor="let val of mList">{{val}}</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="Medicine" class="form-label">Duration</label>
+                <select class="form-select" id="Medicine" (change)="addMedicin($event)">
+                  <option value="{{val}}" *ngFor="let val of mList">{{val}}</option>
+                </select>
+              </div>
+
+
+
+            </div>
+
+
+            <div class="mb-3">
+              <label for="Medicine" class="form-label">Diagnosis</label>
+              <select class="form-select" id="Medicine" (change)="addMedicin($event)">
+                <option value="{{val}}" *ngFor="let val of mList">{{val}}</option>
+              </select>
+            </div>
+
+
+
+
+
+
+
+
+
+            frequencyList: any[] = [];
+  addFrequency(event: any) {
+    const selectedValue = event.target.value;
+    this.frequencyList.push(selectedValue);
+  }
+  fList: any[] = [
+    
+    "1-0-1",
+    "1-0-0",
+    "0-1-0",
+    "0-0-1",
+    "1-1-0",
+    "0-1-1",
+    "1-1-1"
+  ]
