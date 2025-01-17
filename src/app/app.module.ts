@@ -18,6 +18,7 @@ import { SignupComponent } from './Authentication/signup/signup.component';
 import { AdminComponent } from './internal/admin/admin.component';
 import { LabComponent } from './internal/lab/lab.component';
 import { MilonComponent } from './external/doctors/doctors_information/milon/milon.component';
+import { LabEntryComponent } from './internal/lab-entry/lab-entry.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { MilonComponent } from './external/doctors/doctors_information/milon/mil
     SignupComponent,
     AdminComponent,
     LabComponent,
-    MilonComponent
+    MilonComponent,
+    LabEntryComponent
   ],
   imports: [
     BrowserModule,

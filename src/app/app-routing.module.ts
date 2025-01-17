@@ -13,6 +13,8 @@ import { LoginComponent } from './Authentication/login/login.component';
 import { SignupComponent } from './Authentication/signup/signup.component';
 import { LabComponent } from './internal/lab/lab.component';
 import { MilonComponent } from './external/doctors/doctors_information/milon/milon.component';
+import { AdminComponent } from './internal/admin/admin.component';
+import { LabEntryComponent } from './internal/lab-entry/lab-entry.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -28,6 +30,9 @@ const routes: Routes = [
   { path: 'dr_milon', component: MilonComponent },
   { path: 'doctor', component: DoctorsComponent, loadChildren: () => import('./internal/doctors/doctors.module').then(x => x.DoctorsModule) },
   { path: 'lab', component: LabComponent, loadChildren: () => import('./internal/lab/lab.module').then(x => x.LabModule) },
+  { path: 'admin', component: AdminComponent, loadChildren: () => import('./internal/admin/admin.module').then( x => x.AdminModule)},
+  { path: 'lab_entry', component:  LabEntryComponent, loadChildren: () => import( './internal/lab-entry/lab-entry.module').then(x => x.LabEntryModule)},
+  
 ];
 
 @NgModule({

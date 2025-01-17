@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+  selector: 'app-lab-entry',
+  templateUrl: './lab-entry.component.html',
+  styleUrls: ['./lab-entry.component.scss']
 })
-export class AdminComponent implements OnInit {
+export class LabEntryComponent implements OnInit {
   ngOnInit(): void {
     setInterval(() => {
        this.time = new Date().toLocaleTimeString();
