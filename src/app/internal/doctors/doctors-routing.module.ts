@@ -7,6 +7,7 @@ import { PrescriptionPadComponent } from './prescription-pad/prescription-pad.co
 import { NotepadComponent } from './notepad/notepad.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DepartmentComponent } from './department/department.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'doctor_dashboard', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
     {path:"note", component:NotepadComponent},
     {path:"to_do", component:ToDoListComponent},
     {path:"doctor_dashboard", component:DashboardComponent},
+    
     
     
 ];

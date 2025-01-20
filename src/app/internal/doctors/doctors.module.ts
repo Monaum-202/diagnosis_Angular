@@ -12,6 +12,7 @@ import { PrescriptionPadComponent } from './prescription-pad/prescription-pad.co
 import { NotepadComponent } from './notepad/notepad.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DepartmentComponent } from './department/department.component';
 
 
 
@@ -25,6 +26,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NotepadComponent,
     ToDoListComponent,
     DashboardComponent,
+    DepartmentComponent,
 
   ],
   imports: [

@@ -8,13 +8,15 @@ import { RouterModule } from '@angular/router';
 import { EmployeesComponent } from './employees/employees.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DoctorsComponent } from './doctors/doctors.component';
+import { MediDepartmentComponent } from './medi-department/medi-department.component';
 
 
 @NgModule({
   declarations: [
     EmployeesComponent,
     DashboardComponent,
-    DoctorsComponent
+    DoctorsComponent,
+    MediDepartmentComponent
   ],
   imports: [
     CommonModule,
