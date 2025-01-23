@@ -49,16 +49,18 @@ export class CAppointmentComponent implements OnInit {
   onDepartmentChange(event: Event): void {
     const departmentId = (event.target as HTMLSelectElement).value.trim();
   
+    // If no department is selected, clear the doctors list and return
     if (!departmentId || departmentId === 'null') {
       this.doctors = [];
       return;
     }
   
-    this.http.get<any[]>(`http://localhost:9090/api/doctorAppointments/doctors/${departmentId}`)
+    // Call the Spring Boot endpoint to fetch doctors by department
+    this.http.get<any[]>(`http://localhost:9090/api/doctorAppointments/doctors/by-department/${departmentId}`)
       .subscribe({
         next: (response) => {
-          // Ensure the response is valid before assigning
-          this.doctors = response.map(doctor => ({
+          // Map response to a cleaned-up doctors list
+          this.doctors = response.map((doctor: any) => ({
             id: doctor.id,
             name: doctor.name,
             specialization: doctor.specialization
@@ -66,14 +68,17 @@ export class CAppointmentComponent implements OnInit {
         },
         error: (error) => {
           console.error('Error loading doctors:', error);
+          // Clear doctors list if there's an error
           this.doctors = [];
         }
       });
-  }
+    }  
 
   // Submit appointment form data to backend API
   onSubmit(): void {
     if (this.appointmentForm.valid) {
+      console.log(this.appointmentForm.value,'-------------------------------------');
+      
       const url = 'http://localhost:9090/api/doctorAppointments'; // Spring Boot backend
       this.http.post(url, this.appointmentForm.value).subscribe({
         next: (response) => {
