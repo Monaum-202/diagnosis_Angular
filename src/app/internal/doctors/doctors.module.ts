@@ -40,7 +40,11 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+<<<<<<< HEAD
     RouterModule,
+=======
+    BrowserAnimationsModule,
+>>>>>>> 27884a6 (ok)
     MatFormFieldModule,
     MatInputModule,
     MatAutocompleteModule
