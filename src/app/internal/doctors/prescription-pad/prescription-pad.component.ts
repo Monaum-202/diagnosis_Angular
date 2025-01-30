@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { PrescriptionService } from 'src/app/service/prescription/prescription.service';
 
@@ -8,36 +9,46 @@ import { PrescriptionService } from 'src/app/service/prescription/prescription.s
   styleUrls: ['./prescription-pad.component.scss']
 })
 export class PrescriptionPadComponent implements OnInit {
-  constructor(
-    private prescriptionService: PrescriptionService,
-    private route: ActivatedRoute
-  ) { }
 
-  prescriptionList: any[] = [];
-  prescription: any
+  constructor() { }
+
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('pId');
-    if (id) {
-      this.prescriptionService.getById(id).subscribe((val: any) => {
-        this.prescription = val;
-        console.log(val);
-        
-      });
-    }
-    this.prescriptionService.getAll().subscribe((val: any) => {
-      this.prescriptionList = val;
-    });
-  }
-
-
-
-
-
-  deletePatient(id: any) {
-    this.prescriptionService.deleteById(id).subscribe((val: any) => {
-      console.log("Data deleted");
-      this.ngOnInit()
-    })
-  }
+    this.Addnewrow();
+   }
+ 
+   title = 'FormArray';
+   items!: FormArray;
+   reactform = new FormGroup({
+     code: new FormControl('', Validators.required),
+     name: new FormControl('', Validators.required),
+     deladdress: new FormArray([])
+   });
+ 
+   ProceedSave() {
+     console.log(this.reactform.value);
+   }
+ 
+   Addnewrow() {
+     this.items = this.reactform.get("deladdress") as FormArray;
+     this.items.push(this.Genrow())
+   }
+   Removeitem(index:any){
+     this.items = this.reactform.get("deladdress") as FormArray;
+     this.items.removeAt(index)
+   }
+ 
+   get deladdress(){
+     return this.reactform.get("deladdress") as FormArray;
+   }
+ 
+   Genrow(): FormGroup {
+     return new FormGroup({
+      street:new FormControl('',Validators.required),
+      city:new FormControl('',Validators.required),
+      state:new FormControl('',Validators.required),
+      zip:new FormControl('',Validators.compose([Validators.required,Validators.maxLength(6)]) )
+     });
+   }
+ 
 
 }
