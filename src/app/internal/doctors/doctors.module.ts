@@ -14,14 +14,10 @@ import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DepartmentComponent } from './department/department.component';
 import { PrescriptionComponent } from './prescription/prescription.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSelectModule } from '@angular/material/select';
-import { MatCardModule } from '@angular/material/card';
-import { MatTableModule } from '@angular/material/table';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 
 
 
@@ -45,19 +41,9 @@ import { MatTableModule } from '@angular/material/table';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatCardModule,
-    MatTableModule,
-    BrowserModule,
-
-
-  
-  
- 
+    MatAutocompleteModule
     
   ]
 })
