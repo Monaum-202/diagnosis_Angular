@@ -13,6 +13,10 @@ import { NotepadComponent } from './notepad/notepad.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DepartmentComponent } from './department/department.component';
+import { PrescriptionComponent } from './prescription/prescription.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 
@@ -27,6 +31,7 @@ import { DepartmentComponent } from './department/department.component';
     ToDoListComponent,
     DashboardComponent,
     DepartmentComponent,
+    PrescriptionComponent
 
   ],
   imports: [
@@ -36,6 +41,10 @@ import { DepartmentComponent } from './department/department.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatAutocompleteModule
+    
   ]
 })
 export class DoctorsModule { }

@@ -6,17 +6,23 @@ import { Injectable } from '@angular/core';
 })
 export class AppointmentService {
   constructor(private httpClient: HttpClient) { }
-
-  private apiUrl = "http://localhost:3000/appointments";
   
+  
+  private apiUrl = "http://localhost:9090/api/doctorAppointments"
+
+  
+
   addData(user: any) {
     return this.httpClient.post(this.apiUrl, user)
   } 
 
-  getAll() {
-    return this.httpClient.get(this.apiUrl)
-  }
+  // getAll() {
+  //   return this.httpClient.get(this.apiUrl)
+  // }
   
+  getAll() {
+    return this.httpClient.get(this.apiUrl+"/patients/29")
+  }
 
   deleteById(id: any) {
     return this.httpClient.delete(this.apiUrl+ "/"+ id)

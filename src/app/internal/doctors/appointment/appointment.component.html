@@ -7,9 +7,9 @@
             <th scope="col">Phone Number</th>
             <th scope="col">Email</th>
             <th scope="col">Address</th>
-            <!-- <th scope="col">Doctor Name</th> -->
-            <!-- <th scope="col">Appointment Date</th>
-            <th scope="col">Appointment Time</th> -->
+            <th scope="col">Doctor Name</th>
+            <th scope="col">Appointment Date</th>
+            <!-- <th scope="col">Appointment Time</th> -->
             <th scope="col">Message</th>
             <th scope="col" style="text-align: center;">Action</th>
         </tr>
@@ -18,11 +18,11 @@
         <tr *ngFor="let appointment of patientList">
             <td>{{ appointment.id }}</td>
             <td>{{ appointment.patientName }}</td>
-            <td>{{ appointment.phoneNumber }}</td>
+            <td>{{ appointment.contactNumber }}</td>
             <td>{{ appointment.email }}</td>
             <td>{{ appointment.address }}</td>
-            <!-- <td>{{ appointment.doctorName }}</td> -->
-            <!-- <td>{{ appointment.appointmentDate }}</td> -->
+            <td>{{ appointment.doctorName }}</td> 
+             <td>{{ appointment.appointmentDate }}</td> 
             <!-- <td>{{ appointment.appointmentTime }}</td> -->
             <td>{{ appointment.message }}</td>
             <td class="text-center">

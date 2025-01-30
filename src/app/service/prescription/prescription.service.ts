@@ -32,4 +32,9 @@ export class PrescriptionService {
     
     return this.httpClient.put(this.apiUrl+ "/"+ user.id, user)
   }
+
+  seach(text: string){
+    return this.httpClient.get("http://localhost:9090/api/medicines" + "/search?medicineName="+text)
+  }
+
 }

@@ -9,9 +9,22 @@ import { PrescriptionService } from 'src/app/service/prescription/prescription.s
   styleUrls: ['./prescription-create.component.scss']
 })
 export class PrescriptionCreateComponent {
-deleteFromList(_t72: any) {
-console.log(_t72);
-}
+  medicineSuggestion : any[] = []
+  medicineInput() {
+    let text = (document.getElementById('Medicine') as (HTMLInputElement) ).value;
+    console.log(text);
+    
+    if(text){
+      this.prescriptionService.seach(text).subscribe((v:any)=>{
+        console.log(v);
+        
+        this.medicineSuggestion = v.content;
+      })
+    }
+  }
+  deleteFromList(_t72: any) {
+    console.log(_t72);
+  }
   constructor(
     private prescriptionService: PrescriptionService,
     private router: Router,
@@ -23,7 +36,7 @@ console.log(_t72);
   prescriptionList!: any
 
 
-  prescriptionForm: FormGroup = new FormGroup({
+  prescriptionsForm: FormGroup = new FormGroup({
     id: new FormControl(),
     patientName: new FormControl(),
     age: new FormControl(),
@@ -37,15 +50,15 @@ console.log(_t72);
   })
 
   onSubmit() {
-    this.prescriptionService.addData(this.prescriptionForm.value).subscribe((val: any) => {
+    this.prescriptionService.addData(this.prescriptionsForm.value).subscribe((val: any) => {
       console.log("Prescription created succesfully");
-      console.log(this.prescriptionForm.value);
+      console.log(this.prescriptionsForm.value);
 
       this.router.navigateByUrl('doctor/prescription_pad/' + val.id)
     })
   }
 
-  // // prescription: any
+  // prescription: any
   // ngOnInit(): void {
   //   this.id = this.route.snapshot.params['pId']
   //   this.prescriptionService.getById(this.id).subscribe((val: any) => {
@@ -70,9 +83,9 @@ console.log(_t72);
   //     });
   //   })
   // }
-  
 
-  prescription: any = null
+
+  prescription: any = {patientName : "", age : "", date:""}
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('pId');
 
@@ -80,7 +93,7 @@ console.log(_t72);
       this.prescription = val;
       console.log(this.prescription);
 
-      this.prescriptionForm.setValue(this.prescriptionList)
+      this.prescriptionsForm.setValue(this.prescriptionList)
 
 
 
@@ -104,7 +117,7 @@ console.log(_t72);
 
 
 
-  
+
   selectedMedicineList: any[] = [];
 
   addMedicin(event: any) {
@@ -1146,7 +1159,7 @@ console.log(_t72);
     "30 days",
     "60 days",
     "Running"
-    
+
   ]
 
 
