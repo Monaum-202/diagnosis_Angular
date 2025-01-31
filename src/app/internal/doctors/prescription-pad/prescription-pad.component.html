@@ -34,22 +34,7 @@
       </div>
 
       <br>
-
-      <h2>Medicines</h2>
-      <table formArrayName="medicines">
-        <tbody>
-          <tr *ngFor="let item of medicines.controls; let i = index" [formGroupName]="i">
-            <td><input type="text" placeholder="Medicine" formControlName="medicine"></td>
-            <td><input type="text" placeholder="Dosage" formControlName="dosage"></td>
-            <td><input type="text" placeholder="Frequency" formControlName="frequency"></td>
-            <td><input type="text" placeholder="Duration" formControlName="duration"></td>
-            <td><button type="button" class="remove-btn" (click)="Removeitem(i)">X</button></td>
-          </tr>
-        </tbody>
-      </table>
-      
-      <button type="button" class="add-btn" (click)="Addnewrow()">Add New (+)</button>
-
+      <br><br>
       <h2>Complaints</h2>
       <table formArrayName="complaints">
         <tbody>
@@ -61,7 +46,28 @@
       </table>
 
       <button type="button" class="add-btn" (click)="Addnewrow3()">Add New (+)</button>
+      <br>
+      <br><br>
+      <h2>Medicines</h2>
+      <table formArrayName="medicines">
+        <tbody>
+          <tr *ngFor="let item of medicines.controls; let i = index" [formGroupName]="i">
+            <td><input type="text" placeholder="Medicine" formControlName="medicine"></td>
+            <!-- <select formControlName="medicine">
+              <option *ngFor="let med of medicine" [value]="med.medicationName">{{ med.medicineName }}</option>
+            </select> -->
+            <td><input type="text" placeholder="Dosage" formControlName="dosage"></td>
+            <td><input type="text" placeholder="Frequency" formControlName="frequency"></td>
+            <td><input type="text" placeholder="Duration" formControlName="duration"></td>
+            <td><button type="button" class="remove-btn" (click)="Removeitem(i)">X</button></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <button type="button" class="add-btn" (click)="Addnewrow()">Add New (+)</button>
 
+      <br><br>
+      
       <h2>Investigations</h2>
       <table formArrayName="investigations">
         <tbody>
@@ -73,7 +79,7 @@
       </table>
 
       <button type="button" class="add-btn" (click)="Addnewrow1()">Add New (+)</button>
-
+      <br><br>
       <h2>Diagnosis</h2>
       <table formArrayName="diagnosis">
         <tbody>
@@ -85,9 +91,7 @@
       </table>
 
       <button type="button" class="add-btn" (click)="Addnewrow2()">Add New (+)</button>
-      <br>
-      <br>
-
+      <br><br>
       <div class="form-group">
         <label for="advice">Advice</label>
         <input type="text" id="advice" formControlName="advice">

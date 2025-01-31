@@ -96,7 +96,7 @@ input[type="text"] {
   color: white;
   width: 100%;
   padding: 10px;
-  font-size: 16px;
+  font-size: 10px;
 }
 
 /* Button Hover Effects */
@@ -119,4 +119,14 @@ input[type="text"] {
   .form-group {
     width: 100%;
   }
+}
+.flex-container {
+  display: flex;
+  justify-content: space-between; /* Spaces out elements */
+/* Adds space between the sections */
+}
+
+.section {
+  flex: 1; /* Each section takes equal space */
+  min-width: 300px; /* Prevents shrinking too much */
 }

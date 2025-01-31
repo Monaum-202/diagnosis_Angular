@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -10,7 +11,7 @@ import { PrescriptionService } from 'src/app/service/prescription/prescription.s
 })
 export class PrescriptionPadComponent implements OnInit {
   constructor(
-    private prescriptionService: PrescriptionService,
+    private prescriptionService: PrescriptionService, private http: HttpClient,
     private route: ActivatedRoute
   ) { }
 
@@ -121,6 +122,15 @@ export class PrescriptionPadComponent implements OnInit {
        
      });
     }
+
+    medicine: any[] = [];
+
+    fetchMedicines() {
+      this.http.get<any[]>('http://localhost:9090/api/medicines').subscribe((data: any[]) => {
+        this.medicine = data;
+      });
+    }
+
 
 
     ProceedSave() {
