@@ -96,7 +96,8 @@ export class PrescriptionPadComponent implements OnInit {
        return new FormGroup({
         medicine:new FormControl('',Validators.required),
         dosage:new FormControl('',Validators.required),
-        frequency:new FormControl('',Validators.required)
+        frequency:new FormControl('',Validators.required),
+        duration:new FormControl('',Validators.required)
       });
      }
    

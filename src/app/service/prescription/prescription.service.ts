@@ -39,7 +39,7 @@ export class PrescriptionService {
   }
 
   savePrescription(data: any): Observable<any> {
-    return this.httpClient.post(this.apiUrl, data);
+    return this.httpClient.post("http://localhost:9090/api/prescriptions", data);
   }
 
 }
