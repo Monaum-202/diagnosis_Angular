@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,10 @@ export class PrescriptionService {
 
   seach(text: string){
     return this.httpClient.get("http://localhost:9090/api/medicines" + "/search?medicineName="+text)
+  }
+
+  savePrescription(data: any): Observable<any> {
+    return this.httpClient.post(this.apiUrl, data);
   }
 
 }
