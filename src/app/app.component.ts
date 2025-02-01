@@ -13,8 +13,8 @@ export class AppComponent implements OnInit{
   subscription!: Subscription
 
   ngOnInit(): void {
-    this.subscription = this.apiService.currentMassage.subscribe(message =>
-      this.sharedMessage = message);
+    // this.subscription = this.apiService.currentMassage.subscribe(message =>
+    //   this.sharedMessage = message);
     
   }
   title = 'hospital';

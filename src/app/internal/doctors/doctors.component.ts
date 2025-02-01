@@ -20,4 +20,11 @@ export class DoctorsComponent implements OnInit {
 
   time = ""
   date=""
+
+  logout() {
+    localStorage.clear();
+    sessionStorage.clear();
+    window.location.href = "";
+
+  }
 }
