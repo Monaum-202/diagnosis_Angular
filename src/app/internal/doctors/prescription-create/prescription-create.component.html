@@ -1,0 +1,128 @@
+
+<br><div class="row">
+    <div class="col-md-6">
+      <div class="container">
+        <div class="form-group">
+            <label>Patient Name<span class="required">*</span></label>
+            <input type="text" placeholder="Enter Name">
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Phone Number<span class="required">*</span></label>
+                    <input type="text" class="form-control" placeholder="Enter Phone">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Gender</label>
+                    <select class="form-control">
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="form-group">
+          <label for="doctorName">Referral Doctor <span class="required">*</span></label>
+          <div class="d-flex align-items-center">
+            <input type="text" class="form-control me-2" id="doctorName" [formControl]="doctorNameControl"
+              (input)="filterDoctors()" placeholder="Type doctor name" />
+          </div>
+          
+          <ul *ngIf="filteredDoctors.length > 0" class="autocomplete-list">
+            <li *ngFor="let doctor of filteredDoctors" (click)="selectDoctor(doctor)" class="autocomplete-item">
+              {{ doctor.name }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="form-group">
+            <label>Test Group</label>
+            <select>
+                <option>USG</option>
+                <option>Blood Test</option>
+            </select>
+        </div>
+
+
+
+        
+        <!-- </div> -->
+  
+        <!-- Product Name Selection -->
+        <div class="form-group">
+          <label for="testName">Test Name <span class="required">*</span></label>
+          <div class="d-flex align-items-center">
+            <input type="text" class="form-control me-2" id="testName" [formControl]="testNameControl"
+              (input)="filterTests()" placeholder="Type test name" />
+            
+            <!-- <button class="btn btn-primary ms-2" (click)="searchProduct()">Search</button> -->
+          </div>
+          <ul *ngIf="filteredTests.length > 0" class="autocomplete-list">
+            <li *ngFor="let product of filteredTests" (click)="selectTest(product)" class="autocomplete-item">
+              {{ product.name }}
+            </li>
+          </ul>
+        </div>
+    </div>
+</div>
+
+
+
+  <div class="col-md-6">
+        <!-- Product Table -->
+        <div *ngIf="selectedTests.length >= 0" class="mt-4">
+          <h4>Selected Products</h4>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Test Name</th>
+                <th>Code</th>
+                <th>Price</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let test of selectedTests">
+                <td>{{ test.name }}</td>
+                <td>{{ test.code }}</td>
+                <td>
+                  <input type="number" class="form-control" [(ngModel)]="test.price"  />
+                </td>
+                <td>
+                  <button class="btn btn-danger btn-sm" (click)="removeTest(test)">
+                    Remove
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <!-- Print Options -->
+        <!-- <div class="form-group mb-3">
+          <label class="form-label">Print:</label>
+          <div class="form-check form-check-inline" *ngFor="let option of printOptions">
+            <input type="checkbox" class="form-check-input" [(ngModel)]="option.selected" [id]="option.name" />
+            <label [for]="option.name" class="form-check-label">{{ option.label }}</label>
+          </div>
+        </div> -->
+  
+        <!-- Paper Size Dropdown -->
+        <!-- <div class="form-group mb-4">
+          <label for="paperSize" class="form-label">
+            Paper Size <span class="required">*</span>
+          </label>
+          <select class="form-control" id="paperSize" [(ngModel)]="selectedPaperSize">
+            <option *ngFor="let size of paperSizes" [value]="size">{{ size }}</option>
+          </select>
+        </div> -->
+  
+        <!-- Submit Button -->
+        <button class="btn btn-primary" routerLink="/employee/Print">Print</button>
+      </div>
