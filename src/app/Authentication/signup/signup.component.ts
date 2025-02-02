@@ -90,7 +90,7 @@ export class SignupComponent {
 
   onSubmit(){
     this.addData(this.signupForm.value).subscribe((val : any) => {
-      console.log("Product created succesfully");
+      console.log("User created succesfully");
       this.router.navigateByUrl('/login')
     })
   }

@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { MediDepartmentComponent } from './medi-department/medi-department.component';
+import { DoctorRegistrationComponent } from './doctor-registration/doctor-registration.component';
+import { RoleSetComponent } from './role-set/role-set.component';
 
 
 
@@ -10,14 +12,15 @@ const routes: Routes = [
 
     { path: '', redirectTo: 'admin_dashboard', pathMatch: 'full' },
       {path:"admin_dashboard", component:DashboardComponent},
-    {path:"doctors", component:DoctorsComponent},
+    {path:"doctor_reg", component:DoctorRegistrationComponent},
   //   {path:"appointment", component:AppointmentComponent},
   //   {path:"prescription/:pId", component:PrescriptionCreateComponent},
   //   {path:"prescription", component:PrescriptionCreateComponent},
   //   {path:"prescription_pad", component:PrescriptionPadComponent},
   //   {path:"note", component:NotepadComponent},
   //   {path:"to_do", component:ToDoListComponent},
-  {path:"department", component:MediDepartmentComponent},
+  {path:"role_set/:userId", component:RoleSetComponent},
+
 ];
 
 @NgModule({
