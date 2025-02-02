@@ -85,7 +85,7 @@
             <td>{{ test.name }}</td>
             <td>{{ test.code }}</td>
             <td>
-              <input type="number" class="form-control price" [(ngModel)]="test.price" />
+              <input type="number" class="form-control price" [(ngModel)]="test.price"  readonly/>
             </td>
             <td>
               <button class="btn btn-danger btn-sm" (click)="removeTest(test)">

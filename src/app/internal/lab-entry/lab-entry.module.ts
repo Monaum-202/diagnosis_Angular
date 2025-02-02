@@ -5,10 +5,13 @@ import { LabEntryRoutingModule } from './lab-entry-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { DataEntryComponent } from './data-entry/data-entry.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    DataEntryComponent
+  ],
   imports: [
     CommonModule,
     LabEntryRoutingModule,

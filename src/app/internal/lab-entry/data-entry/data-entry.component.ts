@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { PrescriptionService } from 'src/app/service/prescription/prescription.service';
+import { FormControl } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-prescription-create',
-  templateUrl: './prescription-create.component.html',
-  styleUrls: ['./prescription-create.component.scss']
+  selector: 'app-data-entry',
+  templateUrl: './data-entry.component.html',
+  styleUrls: ['./data-entry.component.scss']
 })
-export class PrescriptionCreateComponent {
-    constructor(
+export class DataEntryComponent {
+
+   constructor(
        private http: HttpClient,
       private route: ActivatedRoute
     ) { }

@@ -9,6 +9,8 @@ import { EmployeesComponent } from './employees/employees.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { MediDepartmentComponent } from './medi-department/medi-department.component';
+import { DoctorRegistrationComponent } from './doctor-registration/doctor-registration.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { MediDepartmentComponent } from './medi-department/medi-department.compo
     EmployeesComponent,
     DashboardComponent,
     DoctorsComponent,
-    MediDepartmentComponent
+    MediDepartmentComponent,
+    DoctorRegistrationComponent,
+    RegistrationComponent
   ],
   imports: [
     CommonModule,
