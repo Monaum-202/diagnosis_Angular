@@ -31,19 +31,65 @@
       <input type="password" class="form-control" formControlName="password" required />
     </div>
 
+    <div>
+      <label for="enabled">Enabled</label>
+      <input
+        type="checkbox"
+        id="enabled"
+        formControlName="enabled"
+      />
+    </div>
+  
+    <div>
+      <label for="credentialsNonExpired">Credentials Non Expired</label>
+      <input
+        type="checkbox"
+        id="credentialsNonExpired"
+        formControlName="credentialsNonExpired"
+      />
+    </div>
+  
+    <div>
+      <label for="accountNonExpired">Account Non Expired</label>
+      <input
+        type="checkbox"
+        id="accountNonExpired"
+        formControlName="accountNonExpired"
+      />
+    </div>
+  
+    <div>
+      <label for="accountNonLocked">Account Non Locked</label>
+      <input
+        type="checkbox"
+        id="accountNonLocked"
+        formControlName="accountNonLocked"
+      />
+    </div>
     <!-- Roles Selection -->
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label>Roles:</label>
-      <div class="role-options">
-        <label *ngFor="let role of availableRoles">
-          <input 
-            type="checkbox"
-            [checked]="signupForm.controls['role'].value.includes(role)"
-            (change)="toggleRole(role)"
-          />
-          {{ role.replace('ROLE_', '') }}
-        </label>
-      </div>
+      <select 
+        formControlName="roles" 
+        (change)="toggleRole($event)" 
+        >
+        <option *ngFor="let role of availableRoles" [value]="role">
+          {{ role }}
+        </option>
+      </select>
+    </div> -->
+ 
+    <div>
+      <label for="roles">Roles</label>
+      <select
+        id="roles"
+        formControlName="roles"
+        multiple
+      >
+        <option *ngFor="let role of availableRoles" [value]="role">
+          {{ role }}
+        </option>
+      </select>
     </div>
 
     <!-- Submit Button -->

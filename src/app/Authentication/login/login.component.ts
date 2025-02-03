@@ -87,6 +87,10 @@ export class LoginComponent {
   reloadPage(): void {
     window.location.reload();
   }
+ setName( name : string){
+   this.authService.setUserName(name);
+ }
+  
 }
 
 //   loginForm: FormGroup = new FormGroup({

@@ -30,7 +30,11 @@ export class RoleSetComponent implements OnInit {
     userLastName: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl(''),
-    role: new FormControl([]) // Ensure roles are stored as an array
+    roles: new FormControl([]),
+    enabled: new FormControl(false),
+    credentialsNonExpired: new FormControl(false),
+    accountNonExpired: new FormControl(false),
+    accountNonLocked: new FormControl(false) // Ensure roles are stored as an array
   });
 
   ngOnInit(): void {
@@ -51,11 +55,12 @@ export class RoleSetComponent implements OnInit {
   // Submit form and update user
   onSubmit() {
     const updatedData = this.signupForm.value;
+    console.log(this.signupForm.value);
 
     this.addData(updatedData).subscribe(
       (val: any) => {
         console.log('User updated successfully');
-        this.router.navigateByUrl('/login');
+        this.router.navigateByUrl('admin/doctor_reg');
       },
       (error) => {
         console.error('Error updating user:', error);
@@ -68,14 +73,17 @@ export class RoleSetComponent implements OnInit {
     return this.http.put(`${this.apiUrl}/${this.userName}`, signup);
   }
 
-  // Handle role selection with checkboxes
-  toggleRole(role: string) {
+  // Handle role selection (only needed for multiple selection in a dropdown)
+  toggleRole(event: any) {
     const selectedRoles = this.signupForm.controls['role'].value || [];
-    
-    if (selectedRoles.includes(role)) {
-      this.signupForm.controls['role'].setValue(selectedRoles.filter((r: string) => r !== role));
+    const value = event.target.value;
+
+    if (selectedRoles.includes(value)) {
+      // Remove role if already selected
+      this.signupForm.controls['role'].setValue(selectedRoles.filter((r: string) => r !== value));
     } else {
-      this.signupForm.controls['role'].setValue([...selectedRoles, role]);
+      // Add role if not selected
+      this.signupForm.controls['role'].setValue([...selectedRoles, value]);
     }
   }
 }

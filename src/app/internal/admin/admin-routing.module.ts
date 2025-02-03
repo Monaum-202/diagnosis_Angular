@@ -10,7 +10,7 @@ import { RoleSetComponent } from './role-set/role-set.component';
 
 const routes: Routes = [
 
-    { path: '', redirectTo: 'admin_dashboard', pathMatch: 'full' },
+    { path: '', redirectTo: 'doctor_reg', pathMatch: 'full' },
       {path:"admin_dashboard", component:DashboardComponent},
     {path:"doctor_reg", component:DoctorRegistrationComponent},
   //   {path:"appointment", component:AppointmentComponent},
