@@ -18,7 +18,7 @@ export class UserServiceService {
     return this.httpClient.get(this.apiUrl)
   }
 
-  getById(userName: any) {
+  getByuserName(userName: any) {
     return this.httpClient.get(this.apiUrl + "/" + userName)
   }
 

@@ -19,7 +19,7 @@ const routes: Routes = [
   //   {path:"prescription_pad", component:PrescriptionPadComponent},
   //   {path:"note", component:NotepadComponent},
   //   {path:"to_do", component:ToDoListComponent},
-  {path:"role_set/:userId", component:RoleSetComponent},
+  {path:"role_set/:userName", component:RoleSetComponent},
 
 ];
 
